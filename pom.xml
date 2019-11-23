@@ -26,8 +26,8 @@
     </dependency>
     <dependency>
       <groupId>ca.mcgill.sable</groupId>
-      <artifactId>soot</artifactId>
-      <version>3.1.0-SNAPSHOT</version>
+      <artifactId>soot-j9</artifactId>
+      <version>4.0.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
 
@@ -46,51 +46,90 @@
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.1.0</version>
         </plugin>
+
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.0.2</version>
         </plugin>
+
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
-	  <version>3.8.0</version>
+          <version>3.8.0</version>
           <configuration>
             <compilerArgs>
               <arg>-Xlint:all,-options,-path</arg>
             </compilerArgs>
           </configuration>
         </plugin>
+
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
         </plugin>
+
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>3.0.2</version>
-          <configuration>
-            <archive>
-              <manifest>
-                <mainClass>ca.sfu.cmpt745.ex06.checker.KittenCheckerMain</mainClass>
-              </manifest>
-            </archive>
-          </configuration>
+          <executions>
+            <execution>
+              <id>default-jar</id>
+              <phase>none</phase>
+            </execution>
+          </executions>
         </plugin>
+
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
-          <version>2.5.2</version>
+          <executions>
+            <execution>
+              <id>default-install</id>
+              <phase>none</phase>
+            </execution>
+          </executions>
         </plugin>
+
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
         </plugin>
+
         <plugin>
           <artifactId>maven-site-plugin</artifactId>
           <version>3.7.1</version>
         </plugin>
+
         <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>1.6.0</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>exec</goal>
+              </goals>
+            </execution>
+          </executions>
+
+          <configuration>
+            <executable>java</executable>
+            <arguments>
+              <argument>-classpath</argument>
+              <classpath/>
+              <argument>ca.sfu.cmpt745.ex06.checker.KittenCheckerMain</argument>
+              <argument>--soot-classpath</argument>
+              <argument>.:target/classes:VIRTUAL_FS_FOR_JDK</argument>
+              <argument>${SOOT_TARGET}</argument>
+            </arguments>
+          </configuration>
+        </plugin>
+
       </plugins>
     </pluginManagement>
   </build>
+
 </project>
+
