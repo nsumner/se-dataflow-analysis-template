@@ -38,6 +38,8 @@ class JsonKittenReporter implements KittenErrorReporter {
                           int lineNumber,
                           String targetState,
                           String sourceState) {
+    targetState = targetState.toLowerCase();
+    sourceState = sourceState.toLowerCase();
 
     System.out.println("Error on " + variableName + " at " + lineNumber + "\n"
                        + sourceState + " -> " + targetState + "\n");
