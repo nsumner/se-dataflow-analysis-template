@@ -153,7 +153,7 @@ class KittenCheckerTests {
 
     // With those, we can safely check the specific errors involved
     final var error = onLine.get(0);
-    assertEquals("$r0", error.variable);
+    assertEquals("$r2", error.variable);
     assertEquals("eating", error.source);
     assertEquals("plotting", error.target);
   }
@@ -219,7 +219,7 @@ class KittenCheckerTests {
 
     // With those, we can safely check the specific errors involved
     final var error = onLine.get(0);
-    assertEquals("r7", error.variable);
+    assertEquals("r5", error.variable);
     assertEquals("running", error.source);
     assertEquals("sleeping", error.target);
   }
@@ -245,7 +245,7 @@ class KittenCheckerTests {
 
     // With those, we can safely check the specific errors involved
     final var error = onLine.get(0);
-    assertEquals("$r2", error.variable);
+    assertEquals("$r1", error.variable);
     assertEquals("playing", error.source);
     assertEquals("plotting", error.target);
   }
@@ -271,7 +271,7 @@ class KittenCheckerTests {
 
     // With those, we can safely check the specific errors involved
     final var error = onLine.get(0);
-    assertEquals("$r2", error.variable);
+    assertEquals("$r1", error.variable);
     assertEquals("playing", error.source);
     assertEquals("plotting", error.target);
   }
@@ -298,7 +298,7 @@ class KittenCheckerTests {
 
       // With those, we can safely check the specific errors involved
       final var error = onLine.get(0);
-      assertEquals("$r6", error.variable);
+      assertEquals("$r3", error.variable);
       assertEquals("sleeping", error.source);
       assertEquals("playing", error.target);
     }
@@ -312,7 +312,7 @@ class KittenCheckerTests {
 
       // With those, we can safely check the specific errors involved
       final var error = onLine.get(0);
-      assertEquals("$r2", error.variable);
+      assertEquals("$r1", error.variable);
       assertEquals("playing", error.source);
       assertEquals("plotting", error.target);
     }
