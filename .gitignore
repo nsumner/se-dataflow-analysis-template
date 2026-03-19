@@ -1,0 +1,5 @@
+sootOutput
+target
+kitten-errors.json
+run-log-*.txt
+build-log.txt
